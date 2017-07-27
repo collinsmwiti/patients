@@ -23,23 +23,23 @@ export class Patient {
   </div>
   <div>
   <label>FirstName: </label>
-  {{patient.firstName}}
+  <input [(ngModel)]="patient.firstName" placeholder="FirstName">
   </div>
   <div>
   <label>LastName: </label>
-  {{patient.lastName}}
+  <input [(ngModel)]="patient.lastName" placeholder="LastName">
   </div>
   <div>
   <label>DOB: </label>
-  {{patient.dOB}}
+  <input [(ngModel)]="patient.dOB" placeholder="DOB">
   </div>
   <div>
   <label>Telephone: </label>
-  {{patient.telephone}}
+  <input [(ngModel)]="patient.telephone" placeholder="Telephone">
   </div>
   <div>
   <label>EmailAddress:</label>
-  {{patient.emailAddress}}
+  <input [(ngModel)]="patient.emailAddress" placeholder="EmailAddress">
   </div>
   `
 })
