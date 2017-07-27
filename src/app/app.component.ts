@@ -1,14 +1,5 @@
 import { Component } from '@angular/core';
-
-//class Patient
-export class Patient {
-  id: number;
-  firstName: string;
-  lastName: string;
-  dOB: string;
-  telephone: string;
-  emailAddress: string;
-}
+import { Patient } from './patient';
 
 //array of patients
 const PATIENTS: Patient[] = [
@@ -32,33 +23,7 @@ const PATIENTS: Patient[] = [
   <span class="badge">{{patient.id}}</span> {{patient.firstName}}, {{patient.lastName}}, {{patient.dOB}}, {{patient.telephone}}, {{patient.emailAddress}}
   </li>
   </ul>
-  <div *ngIf="selectedPatient">
-  <h2>{{selectedPatient.firstName}} details!</h2>
-  <div>
-  <label>id: </label>
-  {{selectedPatient.id}}
-  </div>
-  <div>
-  <label>FirstName: </label>
-  <input [(ngModel)]="selectedPatient.firstName" placeholder="FirstName">
-  </div>
-  <div>
-  <label>LastName: </label>
-  <input [(ngModel)]="selectedPatient.lastName" placeholder="LastName">
-  </div>
-  <div>
-  <label>DOB: </label>
-  <input [(ngModel)]="selectedPatient.dOB" placeholder="DOB">
-  </div>
-  <div>
-  <label>Telephone: </label>
-  <input [(ngModel)]="selectedPatient.telephone" placeholder="Telephone">
-  </div>
-  <div>
-  <label>EmailAddress:</label>
-  <input [(ngModel)]="selectedPatient.emailAddress" placeholder="EmailAddress">
-  </div>
-  </div>
+  <patient-detail [patient]="selectedPatient"></patient-detail>
   `,
   styles: [`
   .selected {
@@ -114,12 +79,12 @@ export class AppComponent {
   title = 'Health E-Net';
   patients = PATIENTS;
   selectedPatient: Patient;
-  // patient: Patient = {
-  //   id: 1,
-  //   firstName: 'Douglas',
-  //   lastName: 'Hero',
-  //   dOB: '22nd January 1990',
-  //   telephone: '(+254) 700 123 456',
-  //   emailAddress: 'herodougie@gmail.com'
-  // };
+  patient: Patient = {
+    id: 1,
+    firstName: 'Douglas',
+    lastName: 'Hero',
+    dOB: '22nd January 1990',
+    telephone: '(+254) 700 123 456',
+    emailAddress: 'herodougie@gmail.com'
+  };
 }
