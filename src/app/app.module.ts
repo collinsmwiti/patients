@@ -19,7 +19,7 @@ import { PatientService } from './patient.service';
     FormsModule, // <-- import the FormsModule before binding with [(ngModel)]
     RouterModule.forRoot([
   {
-    path: 'heroes',
+    path: 'patients',
     component: PatientsComponent
   }
 ])
