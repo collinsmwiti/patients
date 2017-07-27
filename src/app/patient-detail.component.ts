@@ -4,6 +4,7 @@ import { Patient } from './patient';
 @Component({
   selector: 'patient-detail',
   template: `
+  <!--Details of a patient-->
   <div *ngIf="patient">
   <h2>{{patient.firstName}} details!</h2>
   <div>
