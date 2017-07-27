@@ -79,12 +79,16 @@ export class AppComponent {
   title = 'Health E-Net';
   patients = PATIENTS;
   selectedPatient: Patient;
-  patient: Patient = {
-    id: 1,
-    firstName: 'Douglas',
-    lastName: 'Hero',
-    dOB: '22nd January 1990',
-    telephone: '(+254) 700 123 456',
-    emailAddress: 'herodougie@gmail.com'
-  };
+
+  onSelect(patient: Patient): void {
+    this.selectedPatient = patient;
+  }
+  // patient: Patient = {
+  //   id: 1,
+  //   firstName: 'Douglas',
+  //   lastName: 'Hero',
+  //   dOB: '22nd January 1990',
+  //   telephone: '(+254) 700 123 456',
+  //   emailAddress: 'herodougie@gmail.com'
+  // };
 }
