@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Patient } from './patient';
 import { PatientService } from './patient.service';
 
@@ -14,7 +16,11 @@ export class PatientsComponent implements OnInit {
   // patients = PATIENTS;
   patients: Patient[];
   selectedPatient: Patient;
-  constructor(private patientService: PatientService) { }
+
+  //constructor for injection
+  constructor(
+    private patientService: PatientService,
+    private router: Router) { }
 
   getPatients(): void {
   this.patientService.getPatients().then(patients => this.patients = patients);
@@ -24,8 +30,14 @@ export class PatientsComponent implements OnInit {
     this.getPatients();
   }
 
+//select patient by clicking
   onSelect(patient: Patient): void {
     this.selectedPatient = patient;
+  }
+
+  // navigate imperatively by telling the router where to go
+  gotoDetail(): void {
+    this.router.navigate(['/detail', this.selectedPatient.id]);
   }
   // patient: Patient = {
   //   id: 1,
