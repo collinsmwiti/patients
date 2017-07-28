@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { PatientDetailComponent } from './patient-detail.component';
 import { PatientsComponent } from './patients.component';
 import { PatientService } from './patient.service';
+import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientDetailComponent,
-    PatientsComponent
+    PatientsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,16 @@ import { PatientService } from './patient.service';
   {
     path: 'patients',
     component: PatientsComponent
-  }
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+  {
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
+  },
 ])
   ],
   providers: [],
