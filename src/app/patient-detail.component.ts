@@ -1,39 +1,35 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Location } from '@angular/common';
+//switchmap
+import 'rxjs/add/operator/switchMap';
+
+import { PatientService } from './patient.service';
 import { Patient } from './patient';
 
 @Component({
   selector: 'patient-detail',
-  template: `
-  <!--Details of a patient-->
-  <div *ngIf="patient">
-  <h2>{{patient.firstName}} details!</h2>
-  <div>
-  <label>id: </label>
-  {{patient.id}}
-  </div>
-  <div>
-  <label>FirstName: </label>
-  <input [(ngModel)]="patient.firstName" placeholder="FirstName">
-  </div>
-  <div>
-  <label>LastName: </label>
-  <input [(ngModel)]="patient.lastName" placeholder="LastName">
-  </div>
-  <div>
-  <label>DOB: </label>
-  <input [(ngModel)]="patient.dOB" placeholder="DOB">
-  </div>
-  <div>
-  <label>Telephone: </label>
-  <input [(ngModel)]="patient.telephone" placeholder="Telephone">
-  </div>
-  <div>
-  <label>EmailAddress:</label>
-  <input [(ngModel)]="patient.emailAddress" placeholder="EmailAddress">
-  </div>
-  </div>
-  `
+   templateUrl: './patient-detail.component.html',
 })
-export class PatientDetailComponent {
+export class PatientDetailComponent implements OnInit {
   @Input() patient: Patient;
+
+//injecting
+  constructor(
+    private patientService: PatientService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
+
+  //ngOnInit lifecycle hook
+  ngOnInit(): void {
+    this.route.paramMap
+    .switchMap((params: ParamMap) => this.patientService.getPatient(+params.get('id')))
+    .subscribe(patient => this.patient = patient);
+  }
+
+  //navigating back
+  goBack(): void {
+  this.location.back();
+}
 }

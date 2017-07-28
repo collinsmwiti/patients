@@ -16,4 +16,9 @@ export class PatientService {
         setTimeout(() => resolve(this.getPatients()), 2000);
       })
     }
+
+    //filter patients according to their ids
+    getPatient(id: number): Promise<Patient> {
+      return this.getPatients().then(patients => patients.find(patient => patient.id === id));
+    }
 }
