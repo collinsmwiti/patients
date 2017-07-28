@@ -5,8 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   template: `
-  <h1>{{title}}</h1>
-  <a routerLink="/patients">Patients</a>
+  <h1 style="text-align: center">{{title}}</h1>
+
+  <button class="btn1"><a routerLink="/patients">Patients</a></button>
   <router-outlet></router-outlet>
   `,
 })

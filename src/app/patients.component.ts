@@ -14,6 +14,7 @@ import { PatientService } from './patient.service';
   <!--each patient goes here-->
   <span class="badge">{{patient.id}}</span> {{patient.firstName}}, {{patient.lastName}}, {{patient.dOB}}, {{patient.telephone}}, {{patient.emailAddress}}
   </li>
+  
   </ul>
   <patient-detail [patient]="selectedPatient"></patient-detail>
   `,
