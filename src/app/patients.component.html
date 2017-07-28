@@ -1,0 +1,16 @@
+<!--Patient's details-->
+<h2>My Patients</h2>
+<ul class="patients">
+  <!--To select a patient in order to see their details-->
+  <li *ngFor="let patient of patients" (click)="onSelect(patient)" [class.selected]="patient=== selectedPatient">
+    <!--each patient goes here-->
+    <span class="badge">{{patient.id}}</span> {{patient.firstName}}, {{patient.lastName}}, {{patient.dOB}}, {{patient.telephone}}, {{patient.emailAddress}}
+  </li>
+
+</ul>
+<div *ngIf="selectedPatient">
+  <h2>
+  {{selectedPatient.firstName | uppercase}} is my patient.
+</h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
