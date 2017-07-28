@@ -39,12 +39,16 @@ export class PatientsComponent implements OnInit {
   gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedPatient.id]);
   }
-  // patient: Patient = {
-  //   id: 1,
-  //   firstName: 'Douglas',
-  //   lastName: 'Hero',
-  //   dOB: '22nd January 1990',
-  //   telephone: '(+254) 700 123 456',
-  //   emailAddress: 'herodougie@gmail.com'
-  // };
+
+//   //add Patient details
+//   add(firstName: string): void {
+//   firstName = firstName.trim();
+//   if (!firstName) { return; }
+//   this.patientService.create(firstName)
+//     .then(patient => {
+//       this.patients.push(patient);
+//       this.selectedPatient = null;
+//     });
+// }
+
 }

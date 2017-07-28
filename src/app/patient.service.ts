@@ -14,7 +14,7 @@ export class PatientService {
   //   }
 
    //using http
-   private patientsUrl = 'api/heroes'; //URL to web api
+   private patientsUrl = 'api/patients'; //URL to web api
 
    //injecting http
    constructor(private http: Http) { }
@@ -45,4 +45,34 @@ export class PatientService {
     getPatient(id: number): Promise<Patient> {
       return this.getPatients().then(patients => patients.find(patient => patient.id === id));
     }
+
+    // //updating getPatient() method to get a get-by-id request:
+    // getPatient(id: number): Promise<Patient> {
+    //   const url = `${this.patientsUrl}/${id}`;
+    //   return this.http.get(url)
+    //   .toPromise()
+    //   .then(response => response.json().data as Patient)
+    //   .catch(this.handleError);
+    // }
+
+    // //adding headers and update method
+    // private headers = new Headers({'Content-Type': 'application/json'});
+    //
+    // update(patient: Patient): Promise<Patient> {
+    //   const url = `${this.patientsUrl}/${patient.id}`;
+    //   return this.http
+    //   .put(url, JSON.stringify(patient), {headers: this.headers})
+    //   .toPromise()
+    //   .then(() => patient)
+    //   .catch(this.handleError);
+    // }
+
+//     //create method
+//     create(firstName: string): Promise<Patient> {
+//   return this.http
+//     .post(this.patientsUrl, JSON.stringify({firstName: firstName}), {headers: this.headers})
+//     .toPromise()
+//     .then(res => res.json().data as Patient)
+//     .catch(this.handleError);
+// }
 }
