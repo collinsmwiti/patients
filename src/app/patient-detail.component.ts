@@ -10,6 +10,7 @@ import { Patient } from './patient';
 @Component({
   selector: 'patient-detail',
    templateUrl: './patient-detail.component.html',
+   styleUrls: [ './patient-detail.component.css' ]
 })
 export class PatientDetailComponent implements OnInit {
   @Input() patient: Patient;

@@ -1,17 +1,33 @@
-/*button*/
-
-.btn1 {
-  color: rgb(49, 46, 46);
-  background-color: rgba(255, 222, 121, 0.96);
-  border-radius: 10px 0 0 10px;
-  font-size: 16px;
+h1 {
+  font-size: 1.2em;
+  color: #999;
+  margin-bottom: 0;
 }
 
+h2 {
+  font-size: 2em;
+  margin-top: 0;
+  padding-top: 0;
+}
 
-/*carousel*/
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
 
-.navBardemoBasicUsage content .ext-content {
-  padding: 50px;
-  margin: 20px;
-  background-color: #FFF2E0;
+nav a:visited, a:link {
+  color: #607D8B;
+}
+
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+
+nav a.active {
+  color: #039be5;
 }
