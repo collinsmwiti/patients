@@ -14,9 +14,14 @@ import { PatientService } from './patient.service';
   <!--each patient goes here-->
   <span class="badge">{{patient.id}}</span> {{patient.firstName}}, {{patient.lastName}}, {{patient.dOB}}, {{patient.telephone}}, {{patient.emailAddress}}
   </li>
-  
+
   </ul>
-  <patient-detail [patient]="selectedPatient"></patient-detail>
+  <div *ngIf="selectedPatient">
+  <h2>
+    {{selectedPatient.firstName | uppercase}} is my patient.
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
   `,
   styles: [`
   .selected {
